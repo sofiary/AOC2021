@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-####### PART ONE #######
-# Count the number of times a depth measurement increases from
-# the previous measurement
-"""Example:
+""" PART ONE
+Count the number of times a depth measurement increases from
+the previous measurement
+Example:
 199 - Start
 200 - Increased +1
 208 - Increased +1
@@ -16,12 +16,13 @@
 263 - Increased +1
 """
 
-####### PART TWO #######
-# Count the number of times a depth measurement across a
-# sliding window of values (n) increases, where n=3
+""" PART TWO
+Count the number of times a depth measurement across a
+sliding window of values (n) increases, where n=3
+"""
 
 def part_one():
-    with open("./Day 1/2021-1_pt1_input.txt","r") as input_:
+    with open("./Day 1/2021-1_input.txt","r") as input_:
         input_text = map(int, input_.read().splitlines())
     increase_accumulator = 0
     prev_depth = None
@@ -32,7 +33,7 @@ def part_one():
     print(f"Total depth increases: {increase_accumulator}")
     
 def part_two():
-    with open("./Day 1/2021-1_pt1_input.txt","r") as input_:
+    with open("./Day 1/2021-1_input.txt","r") as input_:
         input_text = list(map(int, input_.read().splitlines()))
     increase_accumulator = 0
     prev_depth = None
