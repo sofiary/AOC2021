@@ -17,24 +17,37 @@
 """
 
 ####### PART TWO #######
+# Count the number of times a depth measurement across a
+# sliding window of values (n) increases, where n=3
 
-
-
-from functools import reduce
+def part_one():
+    with open("./Day 1/2021-1_pt1_input.txt","r") as input_:
+        input_text = map(int, input_.read().splitlines())
+    increase_accumulator = 0
+    prev_depth = None
+    for depth in input_text:
+        if prev_depth is not None and depth > prev_depth:
+            increase_accumulator += 1
+        prev_depth = depth
+    print(f"Total depth increases: {increase_accumulator}")
+    
+def part_two():
+    with open("./Day 1/2021-1_pt1_input.txt","r") as input_:
+        input_text = list(map(int, input_.read().splitlines()))
+    increase_accumulator = 0
+    prev_depth = None
+    n = 3
+    for idx, _ in enumerate(input_text, start=n):
+        depth = sum(input_text[idx-n:idx])
+        if prev_depth is not None and depth > prev_depth:
+            increase_accumulator += 1
+        prev_depth = depth
+    print(f"Total sliding window depth increases: {increase_accumulator}")
 
 def main():
-    # Part 1
-    with open("2021-1-input.txt","r") as _input:
-        _input_text = map(int, _input.read().splitlines())
-    _increase_accumulator = 0
-    prev_depth = None
-    for depth in _input_text:
-        if prev_depth is not None and depth > prev_depth:
-            _increase_accumulator += 1
-        prev_depth = depth
-    print(f"Total depth increases: {_increase_accumulator}")
+    part_one()
+    part_two()
 
-    # Part 2
 
 if __name__ == "__main__":
     main()
