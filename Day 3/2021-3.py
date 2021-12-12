@@ -29,6 +29,7 @@ The life support rating can now be calculated.
 """
 
 from collections import defaultdict
+from part_two_functions import * # Don't try this at home :)
 
 def part_one():
     with open("./Day 3/2021-3_input.txt", "r") as input_:
@@ -60,31 +61,10 @@ def part_one():
 def part_two():
     with open("./Day 3/2021-3_input.txt", "r") as input_:
         input_text = input_.read().splitlines()
-    total_lines = len(input_text)
-    bit_position_dict = defaultdict(lambda: 0)
 
-    # Pick up here in the future, it is getting late...
-
-    for binary_string in input_text:
-        for idx, bit in enumerate(binary_string):
-            bit_position_dict[idx] += int(bit)
-
-    gamma = ""
-    epsilon = ""
-
-    for key, val in bit_position_dict.items():
-        print(key)
-        gamma += "1" if val > total_lines / 2 else "0"
-        epsilon += "0" if val > total_lines / 2 else "1"
-
-    oxygen_int = int(oxygen, 2)
-    co2_int = int(co2, 2)
-    life_support = oxygen_int * co2_int
-
-    print(
-        f"Oxygen: {gamma_int}, CO2: {epsilon_int}, "
-        f"Life Support: {power_consumption}."
-        )
+    ratings = get_ratings(input_text)
+    for key, val in ratings.items():
+        print(f"{key}: {val}")
 
 def main():
     part_one()
