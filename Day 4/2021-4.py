@@ -5,7 +5,6 @@ from part_two_functions import part_two
 
 def main():
     file = "./Day 4/2021-4_input.txt"
-    #file = "./Day 4/sample_4_input.txt"
     print(part_one(bingo_file=file))
     print(part_two(bingo_file=file))
 
