@@ -35,7 +35,6 @@ def update_grid(parsed_data: np.ndarray, zeroes_grid: np.ndarray) -> np.ndarray:
     for tuple_ in parsed_data:
         x1, y1 = tuple_[0][0], tuple_[0][1]
         x2, y2 = tuple_[1][0], tuple_[1][1]
-        print(f"x1: {x1}, y1: {y1}, x2: {x2}, y2: {y2}")
         if x1 == x2:
             for y in np.linspace(y1, y2, 1+abs(y1-y2), dtype=int):
                 updated_grid[x1,y] += 1
@@ -44,7 +43,6 @@ def update_grid(parsed_data: np.ndarray, zeroes_grid: np.ndarray) -> np.ndarray:
                 updated_grid[x,y1] += 1
         else:
             continue
-    print(updated_grid.T)
     return updated_grid.T
 
 def count_dangerous_areas(
