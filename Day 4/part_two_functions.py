@@ -1,4 +1,3 @@
-from os import read
 import numpy as np
 
 def read_bingo_numbers(data: str, delim=",") -> list[int]:
