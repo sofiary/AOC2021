@@ -3,7 +3,7 @@ import unittest
 from part_one_functions import *
 from part_two_functions import update_grid as update_grid_part_two
 
-class TestPartOne(unittest.TestCase):
+class TestDayFive(unittest.TestCase):
 
     def setUp(self):
         with open("./Day 5/sample_5_input.txt", "r") as input_:
