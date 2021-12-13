@@ -1,6 +1,7 @@
 import numpy as np
 import unittest
 from part_one_functions import *
+from part_two_functions import update_grid as update_grid_part_two
 
 class TestPartOne(unittest.TestCase):
 
@@ -33,6 +34,19 @@ class TestPartOne(unittest.TestCase):
             [2,2,2,1,1,1,0,0,0,0]
         ]
         self.updated_grid = np.array(self.updated_grid)
+        self.updated_grid_part_two = [
+            [1,0,1,0,0,0,0,1,1,0],
+            [0,1,1,1,0,0,0,2,0,0],
+            [0,0,2,0,1,0,1,1,1,0],
+            [0,0,0,1,0,2,0,2,0,0],
+            [0,1,1,2,3,1,3,2,1,1],
+            [0,0,0,1,0,2,0,0,0,0],
+            [0,0,1,0,0,0,1,0,0,0],
+            [0,1,0,0,0,0,0,1,0,0],
+            [1,0,0,0,0,0,0,0,1,0],
+            [2,2,2,1,1,1,0,0,0,0],
+        ]
+        self.updated_grid_part_two = np.array(self.updated_grid_part_two)
         self.dangerous_areas = 5
 
     def test_parsing_data_to_list(self):
@@ -59,6 +73,14 @@ class TestPartOne(unittest.TestCase):
         grid = np.zeros((10,10), dtype=int)
         updated_grid = update_grid(self.parsed_data, grid)
         np.testing.assert_equal(updated_grid, self.updated_grid)
+
+    def test_diagonal_grid_update_from_data(self):
+        """Test that the parsed data updates the grid across the
+        linear space and also across the diagonal space.
+        """
+        grid = np.zeros((10,10), dtype=int)
+        updated_grid = update_grid_part_two(self.parsed_data, grid)
+        np.testing.assert_equal(updated_grid, self.updated_grid_part_two)
 
     def test_count_dangerous_areas(self):
         """Test that we can count the number of dangerous areas correctly.
